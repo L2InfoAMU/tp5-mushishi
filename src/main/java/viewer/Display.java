@@ -27,7 +27,7 @@ public class Display implements Initializable {
                 200, Color.RED, RasterImageType.BRUTE);*/
 
        imageFactory = new RasterFlagFactory(900, 600,
-                Color.BLUE, Color.WHITE, Color.RED, RasterImageType.PALETTE);
+                Color.BLUE, Color.WHITE, Color.RED, RasterImageType.BRUTE);
 
         this.image = imageFactory.makeImage();
 
