@@ -11,15 +11,12 @@ public class BruteRasterImage implements Image{
 
 
     public BruteRasterImage(Color color, int width , int height){
-        this.width = width;
         this.height = height;
+        this.width = width;
+
         createRepresentation();
 
-        for (int x = 0 ; x < width ; x++){
-            for(int y = 0; y < height ; y++){
-                setPixelColor(color,x,y);
-            }
-        }
+        setPixelsColor(color);
     }
 
     public BruteRasterImage(Color[][] colors){
@@ -43,7 +40,46 @@ public class BruteRasterImage implements Image{
     }
 
     private void setPixelsColor(Color[][] pixels){
-        this.pixels
+        int x = Matrices.getColumnCount(pixels);
+        int y = Matrices.getRowCount(pixels);
+
+        for (int i = 0 ; i < x ; i++){
+            for (int j = 0; j < y ; j++){
+                setPixelColor(pixels[x][y],x,y);
+            }
+        }
     }
 
+    private void setPixelsColor(Color color){
+        for (int x = 0 ; x < width ; x++){
+            for(int y = 0; y < height ; y++){
+                setPixelColor(color,x,y);
+            }
+        }
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
+
+    protected void setWidth(int width){
+        if ( width < 0 ) throw new ArrayIndexOutOfBoundsException();
+
+        this.width = width;
+         createRepresentation();
+
+    }
+
+    protected void setHeight(int height){
+        if ( height < 0 ) throw new ArrayIndexOutOfBoundsException();
+
+        this.height = height;
+        createRepresentation();
+    }
 }
