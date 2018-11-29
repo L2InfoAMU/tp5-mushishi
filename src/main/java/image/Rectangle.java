@@ -17,7 +17,7 @@ public class Rectangle implements Shape{
 
     @Override
     public boolean contains(Point point) {
-        return (Math.abs(point.x-origin.x-width/2) < width/2) &&  (Math.abs(point.y-origin.y-height/2) < height/2);
+        return (Math.abs(point.x-origin.x-width/2) <= width/2) &&  (Math.abs(point.y-origin.y-height/2) <= height/2);
     }
 
     @Override

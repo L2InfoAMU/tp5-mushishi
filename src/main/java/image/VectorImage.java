@@ -2,6 +2,7 @@ package image;
 
 import javafx.scene.paint.Color;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class VectorImage implements Image{
@@ -15,9 +16,18 @@ public class VectorImage implements Image{
         setWidth(width);
 
         this.pixels = new Color[width][height];
+        for (int i = 0 ; i< width; i++){
+            Arrays.fill(pixels[i],Color.WHITE);
+        }
 
-        for(Shape i : shapes){
-            pixels
+
+        for (int j = shapes.size() - 1; j >= 0; j--){
+            for(int x = 0; x<width ; x++){
+                for (int y =0 ; y < height ; y++){
+                    if (shapes.get(j).contains(new Point(x,y))) pixels[x][y] = shapes.get(j).getColor();
+
+                }
+            }
         }
 
     }
