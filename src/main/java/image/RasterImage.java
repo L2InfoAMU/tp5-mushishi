@@ -20,7 +20,7 @@ public abstract class RasterImage {
         return pixels[x][y];
     }
 
-    public  void setPixelsColor(Color[][] pixels){
+    protected  void setPixelsColor(Color[][] pixels){
         int x = Matrices.getRowCount(pixels);
         int y = Matrices.getColumnCount(pixels);
 
@@ -32,7 +32,7 @@ public abstract class RasterImage {
 
     }
 
-    public  void setPixelsColor(Color color){
+    protected void setPixelsColor(Color color){
        for (int x = 0 ; x < width ; x++){
            for(int y = 0; y < height ; y++){
                setPixelColor(color,x,y);
