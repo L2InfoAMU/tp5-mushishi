@@ -15,11 +15,12 @@ public class BruteRasterImage extends RasterImage implements Image{
     }
 
     public BruteRasterImage(Color[][] colors){
-        Matrices.requiresNonNull(pixels);
-        Matrices.requiresNonZeroDimensions(pixels);
+        Matrices.requiresNonNull(colors);
+        Matrices.requiresNonZeroDimensions(colors);
 
-        this.height = Matrices.getColumnCount(pixels); // Méthode malhonette , nomage anbigue
-        this.width = Matrices.getRowCount(pixels); // Méthode malhonette , nomage anbigue
+        setHeight(Matrices.getColumnCount(colors));; // Méthode malhonette , nomage anbigue
+        setWidth(Matrices.getRowCount(colors)); // Méthode malhonette , nomage anbigue
+
 
         pixels = colors;
     }

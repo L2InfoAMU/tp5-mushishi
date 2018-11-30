@@ -18,8 +18,8 @@ public class PaletteRasterImage extends RasterImage implements Image  {
         Matrices.requiresNonNull(pixels);
         Matrices.requiresNonZeroDimensions(pixels);
 
-        this.height = Matrices.getColumnCount(pixels); // Méthode malhonette , nomage anbigue
-        this.width = Matrices.getRowCount(pixels); // Méthode malhonette , nomage anbigue
+        setHeight(Matrices.getColumnCount(pixels)); // Méthode malhonette , nomage anbigue
+        setWidth(Matrices.getRowCount(pixels)); // Méthode malhonette , nomage anbigue
 
         this.pixels = pixels;
     }
