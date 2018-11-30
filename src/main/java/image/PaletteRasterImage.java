@@ -6,8 +6,8 @@ import util.Matrices;
 public class PaletteRasterImage extends RasterImage implements Image  {
 
     public PaletteRasterImage(Color color, int width, int height){
-        this.height = height;
-        this.width = width;
+        setHeight(height);
+        setWidth(width);
 
         createRepresentation();
 

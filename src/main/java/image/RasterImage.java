@@ -52,14 +52,12 @@ public abstract class RasterImage {
         if ( width < 0 ) throw new ArrayIndexOutOfBoundsException();
 
         this.width = width;
-        createRepresentation();
     }
 
     protected  void setHeight(int height) {
         if ( height < 0 ) throw new ArrayIndexOutOfBoundsException();
 
         this.height = height;
-        createRepresentation();
     }
 
 }

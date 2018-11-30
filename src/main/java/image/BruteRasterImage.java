@@ -6,8 +6,8 @@ import util.Matrices;
 public class BruteRasterImage extends RasterImage implements Image{
 
     public BruteRasterImage(Color color, int width, int height){
-        this.height = height;
-        this.width = width;
+        setHeight(height);
+        setWidth(width);
 
         createRepresentation();
 
