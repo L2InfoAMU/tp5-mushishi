@@ -8,14 +8,17 @@ import java.util.List;
 public class VectorImage implements Image{
     public int width;
     public int height;
-    public Color[][] pixels;
+    //public Color[][] pixels; Erreur de jeunesse
+    public List<Shape> shapes;
 
 
     public VectorImage(List<Shape> shapes, int width, int height){
         setHeight(height);
         setWidth(width);
+        this.shapes = shapes;
 
-        this.pixels = new Color[width][height];
+
+        /*this.pixels = new Color[width][height];
         for (int i = 0 ; i< width; i++){
             Arrays.fill(pixels[i],Color.WHITE);
         }
@@ -28,13 +31,18 @@ public class VectorImage implements Image{
 
                 }
             }
-        }
+        } Regardez ce que la débrouille peut donner , c'est immonde */
 
     }
 
     @Override
     public Color getPixelColor(int x, int y) {
-        return pixels[x][y];
+        Point n = new Point(x,y);
+        for (int i = 0 ; i < shapes.size(); i++){
+            if(shapes.get(i).contains(n))
+                return shapes.get(i).getColor();
+        }
+        return Color.WHITE;
     }
 
     @Override
